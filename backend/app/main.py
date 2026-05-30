@@ -3,13 +3,22 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from dotenv import load_dotenv
 
+from app.database import engine
+from app.database import Base
+
 from app.routes.auth_routes import router as auth_router
 from app.routes.appointment_routes import router as appointment_router
 from app.routes.ai_routes import router as ai_router
 from app.routes.report_routes import router as report_router
 from app.routes.chatbot_routes import router as chatbot_router
 
+import app.models
+
 load_dotenv()
+
+Base.metadata.create_all(
+    bind=engine
+)
 
 app = FastAPI(
     title="AI Health Assistant"
@@ -32,8 +41,10 @@ app.include_router(ai_router)
 app.include_router(report_router)
 app.include_router(chatbot_router)
 
+
 @app.get("/")
 def home():
+
     return {
         "message": "AI Health Assistant Backend Running"
     }

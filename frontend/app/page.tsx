@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogoutButton from "@/components/LogoutButton";
 
 export default function HomePage() {
   return (
@@ -6,19 +7,25 @@ export default function HomePage() {
 
       <div className="max-w-6xl mx-auto px-6 py-16">
 
-        <div className="text-center">
+        <div className="flex justify-between items-center mb-10">
 
-          <h1 className="text-5xl font-bold text-slate-900">
-            🏥 AI Health Assistant
-          </h1>
+          <div>
 
-          <p className="mt-4 text-xl text-slate-600">
-            Smart Healthcare Platform Powered by AI
-          </p>
+            <h1 className="text-5xl font-bold text-slate-900">
+              🏥 AI Health Assistant
+            </h1>
+
+            <p className="mt-4 text-xl text-slate-600">
+              Smart Healthcare Platform Powered by AI
+            </p>
+
+          </div>
+
+          <LogoutButton />
 
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mt-12">
+        <div className="grid md:grid-cols-2 gap-6">
 
           {/* User Management */}
 
@@ -29,10 +36,10 @@ export default function HomePage() {
             </h2>
 
             <p className="text-slate-600 mb-4">
-              Secure registration and login system.
+              Secure registration, login and profile management.
             </p>
 
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
 
               <Link
                 href="/register"
@@ -46,6 +53,13 @@ export default function HomePage() {
                 className="bg-slate-700 text-white px-4 py-2 rounded-lg"
               >
                 Login
+              </Link>
+
+              <Link
+                href="/profile"
+                className="bg-cyan-600 text-white px-4 py-2 rounded-lg"
+              >
+                Profile
               </Link>
 
             </div>
@@ -64,7 +78,7 @@ export default function HomePage() {
               Book and manage doctor appointments.
             </p>
 
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
 
               <Link
                 href="/appointment"
@@ -93,7 +107,7 @@ export default function HomePage() {
             </h2>
 
             <p className="text-slate-600 mb-4">
-              Use AI to analyze symptoms, medical reports, and get healthcare guidance.
+              Use AI to analyze symptoms, reports and get healthcare guidance.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -109,14 +123,21 @@ export default function HomePage() {
                 href="/report-analyzer"
                 className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
               >
-                Medical Report Analyzer
+                Report Analyzer
               </Link>
 
               <Link
                 href="/chatbot"
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg"
               >
-                AI Health Chatbot
+                AI Chatbot
+              </Link>
+
+              <Link
+                href="/chat-history"
+                className="bg-orange-600 text-white px-4 py-2 rounded-lg"
+              >
+                Chat History
               </Link>
 
             </div>

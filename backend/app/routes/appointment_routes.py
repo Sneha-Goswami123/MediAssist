@@ -6,8 +6,13 @@ from sqlalchemy.orm import Session
 
 from app.auth_dependency import get_current_user
 from app.database import get_db
+
 from app.models import Appointment
+from app.models import User
+
 from app.schemas import AppointmentCreate
+
+from app.email_utils import send_appointment_email
 
 router = APIRouter(
     prefix="/appointments",
@@ -34,6 +39,28 @@ def create_appointment(
     db.commit()
 
     db.refresh(new_appointment)
+
+    user = db.query(
+        User
+    ).filter(
+        User.id ==
+        current_user["user_id"]
+    ).first()
+
+    try:
+
+        send_appointment_email(
+            recipient_email=user.email,
+            doctor_name=appointment.doctor_name,
+            appointment_time=appointment.appointment_time
+        )
+
+    except Exception as e:
+
+        print("================================")
+        print("EMAIL ERROR:")
+        print(str(e))
+        print("================================")
 
     return new_appointment
 

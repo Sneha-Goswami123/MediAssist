@@ -5,8 +5,14 @@ from fastapi import HTTPException
 from sqlalchemy.orm import Session
 
 from app.auth_utils import create_access_token
+from app.auth_dependency import get_current_user
+
 from app.database import get_db
+
 from app.models import User
+from app.models import Appointment
+from app.models import ChatMessage
+
 from app.schemas import UserCreate
 from app.schemas import UserLogin
 
@@ -85,4 +91,39 @@ def login_user(
     return {
         "access_token": token,
         "token_type": "bearer"
+    }
+
+
+@router.get("/profile")
+def get_profile(
+    current_user=Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+
+    user = db.query(User).filter(
+        User.id ==
+        current_user["user_id"]
+    ).first()
+
+    appointment_count = db.query(
+        Appointment
+    ).filter(
+        Appointment.patient_id ==
+        user.id
+    ).count()
+
+    chat_count = db.query(
+        ChatMessage
+    ).filter(
+        ChatMessage.user_id ==
+        user.id
+    ).count()
+
+    return {
+        "id": user.id,
+        "name": user.name,
+        "email": user.email,
+        "role": user.role,
+        "appointments": appointment_count,
+        "chats": chat_count
     }
