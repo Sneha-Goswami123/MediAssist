@@ -4,6 +4,7 @@ from fastapi import HTTPException
 
 from sqlalchemy.orm import Session
 
+from app.auth_utils import create_access_token
 from app.database import get_db
 from app.models import User
 from app.schemas import UserCreate
@@ -74,7 +75,14 @@ def login_user(
             detail="Invalid credentials"
         )
 
+    token = create_access_token(
+        {
+            "user_id": existing_user.id,
+            "email": existing_user.email
+        }
+    )
+
     return {
-        "access_token": str(existing_user.id),
+        "access_token": token,
         "token_type": "bearer"
     }

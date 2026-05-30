@@ -20,7 +20,10 @@ export default function HomePage() {
 
         <div className="grid md:grid-cols-2 gap-6 mt-12">
 
+          {/* User Management */}
+
           <div className="bg-white p-6 rounded-xl shadow">
+
             <h2 className="text-2xl font-bold mb-3">
               👤 User Management
             </h2>
@@ -30,6 +33,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex gap-3">
+
               <Link
                 href="/register"
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg"
@@ -43,10 +47,15 @@ export default function HomePage() {
               >
                 Login
               </Link>
+
             </div>
+
           </div>
 
+          {/* Appointments */}
+
           <div className="bg-white p-6 rounded-xl shadow">
+
             <h2 className="text-2xl font-bold mb-3">
               📅 Appointments
             </h2>
@@ -56,6 +65,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex gap-3">
+
               <Link
                 href="/appointment"
                 className="bg-green-600 text-white px-4 py-2 rounded-lg"
@@ -69,29 +79,48 @@ export default function HomePage() {
               >
                 Dashboard
               </Link>
+
             </div>
+
           </div>
 
+          {/* AI Tools */}
+
           <div className="bg-white p-6 rounded-xl shadow md:col-span-2">
+
             <h2 className="text-2xl font-bold mb-3">
-              🩺 AI Symptom Checker
+              🩺 AI Health Tools
             </h2>
 
             <p className="text-slate-600 mb-4">
-              Describe your symptoms and receive AI-powered health insights.
+              Use AI to analyze symptoms, medical reports, and get healthcare guidance.
             </p>
 
-            <Link
-              href="/symptom-checker"
-              className="bg-red-600 text-white px-4 py-2 rounded-lg"
-            >
-              Open Symptom Checker
-            </Link>
+            <div className="flex flex-wrap gap-3">
 
-            <Link
-              href="/report-analyzer"className="bg-indigo-600 text-white px-4 py-2 rounded-lg">
-              Medical Report Analyzer
-            </Link>
+              <Link
+                href="/symptom-checker"
+                className="bg-red-600 text-white px-4 py-2 rounded-lg"
+              >
+                Symptom Checker
+              </Link>
+
+              <Link
+                href="/report-analyzer"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
+              >
+                Medical Report Analyzer
+              </Link>
+
+              <Link
+                href="/chatbot"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+              >
+                AI Health Chatbot
+              </Link>
+
+            </div>
+
           </div>
 
         </div>

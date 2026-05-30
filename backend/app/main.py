@@ -7,6 +7,7 @@ from app.routes.auth_routes import router as auth_router
 from app.routes.appointment_routes import router as appointment_router
 from app.routes.ai_routes import router as ai_router
 from app.routes.report_routes import router as report_router
+from app.routes.chatbot_routes import router as chatbot_router
 
 load_dotenv()
 
@@ -29,6 +30,7 @@ app.include_router(auth_router)
 app.include_router(appointment_router)
 app.include_router(ai_router)
 app.include_router(report_router)
+app.include_router(chatbot_router)
 
 @app.get("/")
 def home():
