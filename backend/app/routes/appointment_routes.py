@@ -57,9 +57,10 @@ def create_appointment(
 
     except Exception as e:
 
+        import traceback
         print("================================")
         print("EMAIL ERROR:")
-        print(str(e))
+        traceback.print_exc()
         print("================================")
 
     return new_appointment
