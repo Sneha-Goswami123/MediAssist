@@ -1,7 +1,9 @@
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 import os
+import resend
+
+resend.api_key = os.getenv(
+    "RESEND_API_KEY"
+)
 
 
 def send_appointment_email(
@@ -10,55 +12,23 @@ def send_appointment_email(
     appointment_time: str
 ):
 
-    sender_email = os.getenv(
-        "EMAIL_ADDRESS"
-    )
+    resend.Emails.send({
+        "from": "onboarding@resend.dev",
+        "to": recipient_email,
+        "subject": "Appointment Confirmation",
+        "html": f"""
+        <h2>Appointment Confirmed ✅</h2>
 
-    sender_password = os.getenv(
-        "EMAIL_PASSWORD"
-    )
+        <p>Your appointment has been booked successfully.</p>
 
-    subject = "Appointment Confirmation"
+        <p>
+            <b>Doctor:</b> {doctor_name}<br>
+            <b>Time:</b> {appointment_time}
+        </p>
 
-    body = f"""
-Hello,
-
-Your appointment has been booked successfully.
-
-Doctor: {doctor_name}
-Time: {appointment_time}
-
-Status: Confirmed
-
-Thank you,
-AI Health Assistant
-"""
-
-    msg = MIMEMultipart()
-
-    msg["From"] = sender_email
-    msg["To"] = recipient_email
-    msg["Subject"] = subject
-
-    msg.attach(
-        MIMEText(
-            body,
-            "plain"
-        )
-    )
-
-    server = smtplib.SMTP(
-        "smtp.gmail.com",
-        587
-    )
-
-    server.starttls()
-
-    server.login(
-        sender_email,
-        sender_password
-    )
-
-    server.send_message(msg)
-
-    server.quit()
+        <p>
+            Thank you for using
+            AI Health Assistant.
+        </p>
+        """
+    })
