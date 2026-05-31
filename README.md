@@ -1,6 +1,6 @@
-# 🏥 AI Health Assistant
+# 🏥 MediAssist (AI Health Assistant)
 
-A full-stack AI-powered healthcare platform that helps users manage appointments, analyze symptoms, upload medical reports, and interact with an intelligent healthcare chatbot.
+An AI-powered healthcare platform that helps users manage appointments, analyze symptoms, upload medical reports, and interact with an intelligent healthcare chatbot.
 
 The project combines modern web technologies with Generative AI to provide a smart healthcare experience while maintaining secure user authentication and data management.
 
