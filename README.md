@@ -4,6 +4,12 @@ An AI-powered healthcare platform that helps users manage appointments, analyze 
 
 The project combines modern web technologies with Generative AI to provide a smart healthcare experience while maintaining secure user authentication and data management.
 
+![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?logo=kubernetes)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql)
+![Google Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?logo=google)
 ---
 
 # 🚀 Live Demo
@@ -214,6 +220,14 @@ Backend (FastAPI)
 
 ## Cloud & Deployment
 
+* Docker
+* Docker Compose
+* Kubernetes
+* Kubernetes Deployments
+* Kubernetes Services
+* Kubernetes ConfigMaps
+* Kubernetes Secrets
+* Docker Hub
 * Vercel (Frontend Deployment)
 * Render (Backend Deployment)
 * Neon (Database Hosting)
@@ -501,31 +515,71 @@ docker compose up --build
 
 ---
 
-# 🚀 Deployment
+# ☸️ Kubernetes Deployment
+
+The application can also be deployed using Kubernetes.
+
+## Kubernetes Components
+
+- Backend Deployment
+- Frontend Deployment
+- Backend ClusterIP Service
+- Frontend NodePort Service
+- ConfigMap
+- Secret
+- Docker Hub Images
+
+## Deploy
+
+```bash
+kubectl apply -f k8s/
+```
+
+Verify
+
+```bash
+kubectl get deployments
+
+kubectl get pods
+
+kubectl get services
+```
+
+---
 
 ## Frontend
 
-Deployed using:
-
-* Vercel
+- Vercel
+- Kubernetes
 
 ## Backend
 
-Deployed using:
-
-* Render
+- Render
+- Kubernetes
 
 ## Database
 
-Hosted on:
-
-* Neon PostgreSQL
+- Neon PostgreSQL
 
 ## Email Service
 
-Hosted on:
+- Resend
 
-* Resend
+## Containerization
+
+- Docker
+- Docker Compose
+- Docker Hub
+
+## Orchestration
+
+- Kubernetes
+- Deployments
+- Services
+- ConfigMaps
+- Secrets
+
+---  
 
 # 📸 Screenshots
 
@@ -561,8 +615,12 @@ Users should always consult qualified healthcare professionals for medical conce
 * Secure JWT Authentication
 * PostgreSQL Database Integration
 * Gemini AI Integration
+* AI Symptom Checker & Medical Report Analyzer
 * Resend Email Notifications
-* Cloud Deployment using Vercel, Render, and Neon
+* Dockerized Frontend & Backend
+* Kubernetes Deployments with Multi-Replica Architecture
+* Kubernetes Services, ConfigMaps & Secrets
+* Cloud Deployment using Vercel, Render & Neon
 * Production-Ready Architecture
 
 # 👩‍💻 Author
