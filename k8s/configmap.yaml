@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: mediassist-config
+
+data:
+  NEXT_PUBLIC_API_URL: "http://mediassist-backend-service:8000"

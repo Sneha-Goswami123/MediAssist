@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mediassist-frontend
+  labels:
+    app: mediassist-frontend
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: mediassist-frontend
+
+  template:
+    metadata:
+      labels:
+        app: mediassist-frontend
+
+    spec:
+      containers:
+        - name: frontend
+          image: snehagoswami123/mediassist-frontend:v1
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 3000
+
+          envFrom:
+            - configMapRef:
+                name: mediassist-config

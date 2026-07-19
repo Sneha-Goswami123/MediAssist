@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mediassist-backend
+  labels:
+    app: mediassist-backend
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: mediassist-backend
+
+  template:
+    metadata:
+      labels:
+        app: mediassist-backend
+
+    spec:
+      containers:
+        - name: backend
+          image: snehagoswami123/mediassist-backend:v1
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - containerPort: 8000
+
+          envFrom:
+            - secretRef:
+                name: mediassist-secret
