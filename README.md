@@ -477,6 +477,29 @@ Frontend URL:
 ```text
 http://localhost:3000
 ```
+---
+
+## 🐳 Docker Support
+
+Run the complete application using Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+### Services
+
+- Frontend → http://localhost:3000
+- Backend → http://localhost:8000/docs
+
+### Docker Components
+
+- Frontend Container (Next.js)
+- Backend Container (FastAPI)
+- PostgreSQL Database (Neon)
+- Docker Compose Orchestration
+
+---
 
 # 🚀 Deployment
 
