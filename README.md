@@ -298,8 +298,8 @@ AI-Health-Assistant/
 │   ├── services/
 │   │   └── api.ts                       # Axios API Configuration
 │   │
-│   ├── public/                          # Static Assets
-│   │
+│   ├── public/
+│   ├── Dockerfile
 │   ├── package.json
 │   ├── package-lock.json
 │   ├── tsconfig.json
@@ -309,7 +309,6 @@ AI-Health-Assistant/
 ├── backend/
 │   │
 │   ├── app/
-│   │   │
 │   │   ├── routes/
 │   │   │   ├── auth_routes.py
 │   │   │   ├── appointment_routes.py
@@ -317,34 +316,39 @@ AI-Health-Assistant/
 │   │   │   ├── ai_routes.py
 │   │   │   └── report_routes.py
 │   │   │
-│   │   ├── models.py                    # Database Models
-│   │   ├── schemas.py                   # Pydantic Schemas
-│   │   ├── database.py                  # Database Connection
-│   │   ├── main.py                      # FastAPI Entry Point
-│   │   │
-│   │   ├── auth_utils.py                # JWT Token Creation
-│   │   ├── auth_dependency.py           # JWT Validation
-│   │   ├── email_utils.py               # Resend Email Service
-│   │   │
+│   │   ├── models.py
+│   │   ├── schemas.py
+│   │   ├── database.py
+│   │   ├── main.py
+│   │   ├── auth_utils.py
+│   │   ├── auth_dependency.py
+│   │   ├── email_utils.py
 │   │   └── __init__.py
 │   │
 │   ├── requirements.txt
-│   ├── .env
-│   └── .venv/
+│   ├── Dockerfile
+│   └── .env
+│
+├── k8s/
+│   ├── backend-deployment.yaml
+│   ├── backend-service.yaml
+│   ├── frontend-deployment.yaml
+│   ├── frontend-service.yaml
+│   ├── configmap.yaml
+│   └── secret.yaml.example
 │
 ├── screenshots/
-│   ├── home-page.png
-│   ├── login-page.png
-│   ├── dashboard.png
-│   ├── chatbot.png
-│   ├── symptom-checker.png
-│   ├── report-analyzer.png
-│   └── profile-page.png
+│   └── home-page.png
 │
+├── docker-compose.yml
 ├── .gitignore
 ├── README.md
 │
 └── Deployment
+    ├── Docker
+    ├── Docker Compose
+    ├── Kubernetes
+    ├── Docker Hub
     ├── Vercel (Frontend Hosting)
     ├── Render (Backend Hosting)
     ├── Neon PostgreSQL (Database)
