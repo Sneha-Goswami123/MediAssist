@@ -603,6 +603,8 @@ kubectl get services
 * Real-time Notifications
 * Video Consultation Integration
 
+---
+
 # ⚠️ Disclaimer
 
 This application is intended for educational and demonstration purposes only.
@@ -611,6 +613,7 @@ The AI features do not provide medical diagnoses, treatment plans, or emergency 
 
 Users should always consult qualified healthcare professionals for medical concerns.
 
+---
 
 # ⭐ Project Highlights
 
